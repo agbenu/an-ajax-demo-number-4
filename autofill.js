@@ -3,6 +3,20 @@ $(document).ready(function(){
 
     $("#person_info").hide();
     
+
+    $("#name_input").autocomplete({
+        source: "ajax_name_autocomplete.php",
+        minLength: 1,
+        
+        html: true, // optional (jquery.ui.autocomplete.html.js required)
+ 
+      // optional (if other layers overlap autocomplete list)
+        open: function(event, ui) {
+            $(".ui-autocomplete").css("z-index", 1000);
+        }
+    });
+
+
     $("#show_name_button").click(function(event,ui){
 
              var staff_name_id = $('#name_input').val();                       
@@ -23,5 +37,8 @@ $(document).ready(function(){
 
 
 });
+
+
+
 
 
